@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#d2d2d2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:padding="2dp"
+            android:text="info"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:orientation="vertical"
+            android:background="#000000"
+            android:layout_centerInParent="true">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <com.harsh.xo.views.DrawView
+                    android:layout_margin="5dp"
+                    android:id="@+id/draw00"
+                    android:background="#ffffff"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+                <com.harsh.xo.views.DrawView
+                    android:id="@+id/draw01"
+                    android:background="#ffffff"
+                    android:layout_margin="5dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+                <com.harsh.xo.views.DrawView
+                    android:id="@+id/draw02"
+                    android:background="#ffffff"
+                    android:layout_width="0dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <com.harsh.xo.views.DrawView
+                    android:id="@+id/draw10"
+                    android:background="#ffffff"
+                    android:layout_margin="5dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+                <com.harsh.xo.views.DrawView
+                    android:id="@+id/draw11"
+                    android:background="#ffffff"
+                    android:layout_margin="5dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+                <com.harsh.xo.views.DrawView
+                    android:id="@+id/draw12"
+                    android:layout_width="0dp"
+                    android:background="#ffffff"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <com.harsh.xo.views.DrawView
+                    android:id="@+id/draw20"
+                    android:background="#ffffff"
+                    android:layout_width="0dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+                <com.harsh.xo.views.DrawView
+                    android:id="@+id/draw21"
+                    android:background="#ffffff"
+                    android:layout_width="0dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+                <com.harsh.xo.views.DrawView
+                    android:id="@+id/draw22"
+                    android:layout_width="0dp"
+                    android:background="#ffffff"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_margin="10dp"
+            android:id="@+id/btn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:text="RESET"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@color/colorPrimary">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_margin="3dp"
+                android:id="@+id/tv_draw00"
+                android:layout_width="15dp"
+                android:gravity="center"
+                android:text="-"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_margin="3dp"
+                android:id="@+id/tv_draw01"
+                android:layout_width="15dp"
+                android:gravity="center"
+                android:text="-"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_margin="3dp"
+                android:id="@+id/tv_draw02"
+                android:layout_width="15dp"
+                android:gravity="center"
+                android:text="-"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_margin="3dp"
+                android:id="@+id/tv_draw10"
+                android:layout_width="15dp"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_margin="3dp"
+                android:id="@+id/tv_draw11"
+                android:layout_width="15dp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:text="-"
+                android:textStyle="bold"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_margin="3dp"
+                android:id="@+id/tv_draw12"
+                android:layout_width="15dp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:text="-"
+                android:textStyle="bold"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_margin="3dp"
+                android:id="@+id/tv_draw20"
+                android:layout_width="15dp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:text="-"
+                android:textStyle="bold"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_margin="3dp"
+                android:id="@+id/tv_draw21"
+                android:layout_width="15dp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:text="-"
+                android:textStyle="bold"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_margin="3dp"
+                android:id="@+id/tv_draw22"
+                android:layout_width="15dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:text="-"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
