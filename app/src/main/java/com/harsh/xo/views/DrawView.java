@@ -117,17 +117,6 @@ public class DrawView extends View {
         mDrawnLineSize = mModel.getLineSize();
     }
 
-    public void setPixels(int [] data){
-        int[] pixels = new int[28*28];
-        mOffscreenBitmap.getPixels(pixels, 0,mOffscreenBitmap.getWidth(), 0, 0, mOffscreenBitmap.getWidth(), mOffscreenBitmap.getHeight());
-        for (int i=0; i<784; i++) {
-            int temp = (-1)*(data[i]-255);
-            pixels[i] = Color.argb(255,temp,temp,temp);
-        }
-        mOffscreenBitmap.setPixels(pixels, 0, mOffscreenBitmap.getWidth(), 0, 0, mOffscreenBitmap.getWidth(), mOffscreenBitmap.getHeight());
-        mOffscreenCanvas.drawBitmap(mOffscreenBitmap,mMatrix,null);
-    }
-
     /**
      * Convert screen position to local pos (pos in bitmap)
      */
@@ -167,6 +156,7 @@ public class DrawView extends View {
     }
 
     /**
+     *
      * Get 28x28 pixel data for tensorflow input.
      */
     public float[] getPixelData() {
@@ -189,9 +179,5 @@ public class DrawView extends View {
             retPixels[i] =  (float)(0xff - b);;
         }
         return retPixels;
-    }
-
-    public Bitmap getmOffscreenBitmap() {
-        return mOffscreenBitmap;
     }
 }

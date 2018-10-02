@@ -1,12 +1,15 @@
 package com.harsh.xo;
 
 import android.app.Dialog;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.PointF;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
             drawModel21,
             drawModel22;
 
+    private ImageView iv00,iv01,iv02,
+            iv10,iv11,iv12,
+            iv20,iv21,iv22;
+
     private static final int PIXEL_WIDTH = 28;
 
 
@@ -92,6 +99,16 @@ public class MainActivity extends AppCompatActivity {
         d20 = (DrawView) findViewById(R.id.draw20);
         d21 = (DrawView) findViewById(R.id.draw21);
         d22 = (DrawView) findViewById(R.id.draw22);
+
+        iv00 = (ImageView) findViewById(R.id.image00);
+        iv01 = (ImageView) findViewById(R.id.image01);
+        iv02 = (ImageView) findViewById(R.id.image02);
+        iv10 = (ImageView) findViewById(R.id.image10);
+        iv11 = (ImageView) findViewById(R.id.image11);
+        iv12 = (ImageView) findViewById(R.id.image12);
+        iv20 = (ImageView) findViewById(R.id.image20);
+        iv21 = (ImageView) findViewById(R.id.image21);
+        iv22 = (ImageView) findViewById(R.id.image22);
 
         t_d00= (TextView) findViewById(R.id.tv_draw00);
         t_d01= (TextView) findViewById(R.id.tv_draw01);
@@ -224,30 +241,55 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        d00.setVisibility(View.VISIBLE);
+        d01.setVisibility(View.VISIBLE);
+        d02.setVisibility(View.VISIBLE);
+        d10.setVisibility(View.VISIBLE);
+        d11.setVisibility(View.VISIBLE);
+        d12.setVisibility(View.VISIBLE);
+        d20.setVisibility(View.VISIBLE);
+        d21.setVisibility(View.VISIBLE);
+        d22.setVisibility(View.VISIBLE);
+
+        iv00.setVisibility(View.GONE);
+        iv01.setVisibility(View.GONE);
+        iv02.setVisibility(View.GONE);
+        iv10.setVisibility(View.GONE);
+        iv11.setVisibility(View.GONE);
+        iv12.setVisibility(View.GONE);
+        iv20.setVisibility(View.GONE);
+        iv21.setVisibility(View.GONE);
+        iv22.setVisibility(View.GONE);
+
+
+
     }
+
+
+
 
     public ArrayList<Integer> checkempty(){
 
         ArrayList<Integer> emptylist =  new ArrayList<>();
         emptylist.clear();
 
-        if(t_d00.getText().toString()== "-"){
+        if(t_d00.getText().toString().equals("-")){
             emptylist.add(0);
-        }else if(t_d01.getText().toString()== "-"){
+        }if(t_d01.getText().toString().equals("-")){
             emptylist.add(1);
-        }else if(t_d02.getText().toString()== "-"){
+        }if(t_d02.getText().toString().equals("-")) {
             emptylist.add(2);
-        }else if(t_d10.getText().toString()== "-"){
+        }if(t_d10.getText().toString().equals("-")){
             emptylist.add(3);
-        }else if(t_d11.getText().toString()== "-"){
+        }if(t_d11.getText().toString().equals("-")){
             emptylist.add(4);
-        }else if(t_d12.getText().toString()== "-"){
+        }if(t_d12.getText().toString().equals("-")){
             emptylist.add(5);
-        }else if(t_d20.getText().toString()== "-"){
+        }if(t_d20.getText().toString().equals("-")){
             emptylist.add(6);
-        }else if(t_d21.getText().toString()== "-"){
+        }if(t_d21.getText().toString().equals("-")){
             emptylist.add(7);
-        }else if(t_d22.getText().toString()== "-"){
+        }if(t_d22.getText().toString().equals("-")){
             emptylist.add(8);
         }
 
@@ -265,20 +307,20 @@ public class MainActivity extends AppCompatActivity {
             float pixels[] = d.getPixelData();
             float mean = mean(pixels);
 
-            if(mean>20) {
+            if(mean>15) {
 
                 if(last_turn=='o') {
                     last_turn = 'x';
                     last_location = d;
-                    System.out.println("Mean : "+mean);
                     t.setText("X");
 
-                    newGenerate('o');
-
                     // Generate the next location for Generator Model O
-                    /*if(toCheck()){
+                    if(comp_draw=='o') {
+                        newGenerate('o');
+                    }
+                    if(toCheck()){
                         Toast.makeText(MainActivity.this,"X is the winner",Toast.LENGTH_LONG).show();
-                    }*/
+                    }
                 }
                 else {
                     if(last_location!=d) {
@@ -292,21 +334,19 @@ public class MainActivity extends AppCompatActivity {
             float pixels[] = d.getPixelData();
             float mean = mean(pixels);
 
-            if(mean>20) {
+            if(mean>15) {
                 if(last_turn =='x'){
                     last_turn = 'o';
                     last_location = d;
-
-                    System.out.println("Mean : "+mean);
-
                     t.setText("O");
 
-                    newGenerate('x');
-
                     // Generate the next location for Generator Model X
-                    /*if(toCheck()){
+                    if(comp_draw=='x') {
+                        newGenerate('x');
+                    }
+                    if(toCheck()){
                         Toast.makeText(MainActivity.this,"O is the winner",Toast.LENGTH_LONG).show();
-                    }*/
+                    }
                 }
                 else{
                     if(last_location!=d) {
@@ -321,17 +361,29 @@ public class MainActivity extends AppCompatActivity {
 
     public void newGenerate(char var){
         ArrayList<Integer> empty = checkempty();
-        int index = new Random().nextInt(empty.size());
-        int location = (int) empty.get(index);
-        DrawView drawView = drawAtLocation(location);
-        TextView textView = textAtLocation(location);
+        int location;
+        int index;
 
-        if(drawView!=null && textView!=null){
-            last_location = drawView;
-            genXorO(drawView,textView,var);
-        }
-        else{
-            System.out.println("Error in Appp");
+        if(empty.size()!=0){
+            if(empty.size()==1){
+                location = empty.get(0);
+            }
+            else{
+                index = new Random().nextInt(empty.size());
+                location = empty.get(index);
+            }
+            DrawView drawView = drawAtLocation(location);
+            TextView textView = textAtLocation(location);
+            ImageView imageView = imageviewAtLocation(location);
+
+
+            if(drawView!=null && textView!=null){
+                last_location = drawView;
+                genXorO(drawView,imageView,textView,var);
+            }
+            else{
+                System.out.println("Error in Appp");
+            }
         }
     }
 
@@ -355,6 +407,27 @@ public class MainActivity extends AppCompatActivity {
         t_d20.setText("-");
         t_d21.setText("-");
         t_d22.setText("-");
+
+        d00.setVisibility(View.VISIBLE);
+        d01.setVisibility(View.VISIBLE);
+        d02.setVisibility(View.VISIBLE);
+        d10.setVisibility(View.VISIBLE);
+        d11.setVisibility(View.VISIBLE);
+        d12.setVisibility(View.VISIBLE);
+        d20.setVisibility(View.VISIBLE);
+        d21.setVisibility(View.VISIBLE);
+        d22.setVisibility(View.VISIBLE);
+
+        iv00.setVisibility(View.GONE);
+        iv01.setVisibility(View.GONE);
+        iv02.setVisibility(View.GONE);
+        iv10.setVisibility(View.GONE);
+        iv11.setVisibility(View.GONE);
+        iv12.setVisibility(View.GONE);
+        iv20.setVisibility(View.GONE);
+        iv21.setVisibility(View.GONE);
+        iv22.setVisibility(View.GONE);
+
     }
 
     public boolean toCheck(){
@@ -477,7 +550,6 @@ public class MainActivity extends AppCompatActivity {
             sum = sum + data[i];
             System.out.println("data : "+ data[i]);
         }
-        //System.out.println("summmm : "+sum);
         return sum/784;
     }
 
@@ -511,26 +583,40 @@ public class MainActivity extends AppCompatActivity {
         d21.onResume();
         d22.onResume();
 
-
+        reset();
 
         last_turn = 'o';
 
-        ArrayList<Integer> empty = checkempty();
-        int index = new Random().nextInt(empty.size());
-        int location = (int) empty.get(index);
-        DrawView drawView = drawAtLocation(location);
-        TextView textView = textAtLocation(location);
+        int ran = new Random().nextInt(2);
+        if(ran==0){
+            comp_draw = 'x';
+            user_draw ='o';
+            ArrayList<Integer> empty = checkempty();
+            int index = new Random().nextInt(empty.size());
+            int location = (int) empty.get(index);
+            DrawView drawView = drawAtLocation(location);
+            TextView textView = textAtLocation(location);
+            ImageView imageView = imageviewAtLocation(location);
 
-        if(drawView!=null && textView!=null){
-            last_location = drawView;
-            genXorO(drawView,textView,'x');
+            if(drawView!=null && textView!=null){
+                last_location = drawView;
+                genXorO(drawView,imageView,textView,'x');
+            }
+            else{
+                System.out.println("Error in Appp");
+            }
         }
         else{
-            System.out.println("Error in Appp");
+            comp_draw = 'o';
+            user_draw ='x';
+            Toast.makeText(MainActivity.this,"Make your first move",Toast.LENGTH_LONG).show();
         }
 
         super.onResume();
     }
+
+    char comp_draw;
+    char user_draw;
 
 
     public DrawView drawAtLocation(int location){
@@ -578,6 +664,28 @@ public class MainActivity extends AppCompatActivity {
         }
         return null;
     }
+    public ImageView imageviewAtLocation(int location){
+        if(location ==0){
+            return iv00;
+        }if(location ==1){
+            return iv01;
+        }if(location ==2){
+            return iv02;
+        }if(location ==3){
+            return iv10;
+        }if(location ==4){
+            return iv11;
+        }if(location ==5){
+            return iv12;
+        }if(location ==6){
+            return iv20;
+        }if(location ==7){
+            return iv21;
+        }if(location ==8){
+            return iv22;
+        }
+        return null;
+    }
 
     private PointF mTmpPiont = new PointF();
 
@@ -608,8 +716,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
-
-
     private void processTouchDown(MotionEvent event,DrawModel drawModel,DrawView d) {
         mLastX = event.getX();
         mLastY = event.getY();
@@ -621,8 +727,6 @@ public class MainActivity extends AppCompatActivity {
 
         drawModel.startLine(lastConvX, lastConvY);
     }
-
-
     private void processTouchMove(MotionEvent event,DrawModel drawModel,DrawView d) {
         float x = event.getX();
         float y = event.getY();
@@ -640,48 +744,12 @@ public class MainActivity extends AppCompatActivity {
         d.invalidate();
 
     }
-
     private void processTouchUp(DrawModel drawModel) {
         drawModel.endLine();
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // GAN code
-
     private TensorFlowInferenceInterface inferenceInterface_GAN_O;
     private TensorFlowInferenceInterface inferenceInterface_GAN_X;
 
@@ -704,23 +772,34 @@ public class MainActivity extends AppCompatActivity {
         inferenceInterface_GAN_X = new TensorFlowInferenceInterface(getAssets(),MODEL_GAN_X);
     }
 
-    public void genXorO(DrawView d,TextView t, char label){
-        int [] int_image = new int[784];
+    public void genXorO(DrawView d,ImageView iv,TextView t, char label){
+        int [] int_image;
         if(label == 'x'){
             int_image = getGAN_X();
+            t.setText("X");
+            last_turn = 'x';
+
         }
-        else if (label == 'o') {
+        else{
             int_image = getGAN_O();
+            t.setText("O");
+            last_turn = 'o';
         }
 
-        d.setPixels(int_image);
-
-        detect(d,t);
+        int[] pixels = new int[28*28];
+        for (int i=0; i<784; i++) {
+            int temp = (-1)*(int_image[i]-255);
+            pixels[i] = Color.argb(255,temp,temp,temp);
+        }
+        Bitmap btp = Bitmap.createBitmap(28, 28, Bitmap.Config.ARGB_8888);
+        btp.setPixels(pixels, 0, 28, 0, 0,28, 28);
+        d.setVisibility(View.GONE);
+        iv.setVisibility(View.VISIBLE);
+        iv.setImageBitmap(btp);
     }
 
     public int[] getGAN_O(){
         float [] noise_input = new float [100];
-
         for(int i =0 ; i<noise_input.length; i++){
             float value = rand.nextFloat();
             noise_input[i] = (value*2)-1;
@@ -733,17 +812,13 @@ public class MainActivity extends AppCompatActivity {
         //get the output
         inferenceInterface_GAN_O.fetch(OUTPUT_NODE_GAN_O,image);
 
-        System.out.println("image length : "+image.length);
-
         for(int i =0 ; i<image.length; i++){
             int_image[i] = (int)(image[i]*255);
         }
-
         return int_image;
     }
 
     public int[] getGAN_X(){
-
         float [] noise_input = new float [100];
         for(int i =0 ; i<noise_input.length; i++){
             float value = rand.nextFloat();
@@ -760,7 +835,6 @@ public class MainActivity extends AppCompatActivity {
         for(int i =0 ; i<image.length; i++){
             int_image[i] = (int)(image[i]*255);
         }
-
         return int_image;
     }
 
