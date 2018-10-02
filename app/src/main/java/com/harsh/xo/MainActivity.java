@@ -136,25 +136,7 @@ public class MainActivity extends AppCompatActivity {
         btn_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onClear(drawModel00,d00);
-                onClear(drawModel01,d01);
-                onClear(drawModel02,d02);
-                onClear(drawModel10,d10);
-                onClear(drawModel11,d11);
-                onClear(drawModel12,d12);
-                onClear(drawModel20,d20);
-                onClear(drawModel21,d21);
-                onClear(drawModel22,d22);
-
-                t_d00.setText("-");
-                t_d01.setText("-");
-                t_d02.setText("-");
-                t_d10.setText("-");
-                t_d11.setText("-");
-                t_d12.setText("-");
-                t_d20.setText("-");
-                t_d21.setText("-");
-                t_d22.setText("-");
+                reset();
             }
         });
 
@@ -310,17 +292,23 @@ public class MainActivity extends AppCompatActivity {
             if(mean>15) {
 
                 if(last_turn=='o') {
-                    last_turn = 'x';
-                    last_location = d;
-                    t.setText("X");
+                    if(last_location!=d) {
+                        last_turn = 'x';
+                        last_location = d;
 
-                    // Generate the next location for Generator Model O
-                    if(comp_draw=='o') {
-                        newGenerate('o');
+                        t.setText("X");
+
+                        // Generate the next location for Generator Model O
+                        if (comp_draw == 'o') {
+                            newGenerate('o');
+                        }
+                        if (toCheck()) {
+                            Toast.makeText(MainActivity.this, "X is the winner", Toast.LENGTH_LONG).show();
+                        }
                     }
-                    if(toCheck()){
-                        Toast.makeText(MainActivity.this,"X is the winner",Toast.LENGTH_LONG).show();
-                    }
+
+
+
                 }
                 else {
                     if(last_location!=d) {
@@ -336,16 +324,19 @@ public class MainActivity extends AppCompatActivity {
 
             if(mean>15) {
                 if(last_turn =='x'){
-                    last_turn = 'o';
-                    last_location = d;
-                    t.setText("O");
 
-                    // Generate the next location for Generator Model X
-                    if(comp_draw=='x') {
-                        newGenerate('x');
-                    }
-                    if(toCheck()){
-                        Toast.makeText(MainActivity.this,"O is the winner",Toast.LENGTH_LONG).show();
+                    if(last_location!=d) {
+                        last_turn = 'o';
+                        last_location = d;
+                        t.setText("O");
+
+                        // Generate the next location for Generator Model X
+                        if (comp_draw == 'x') {
+                            newGenerate('x');
+                        }
+                        if (toCheck()) {
+                            Toast.makeText(MainActivity.this, "O is the winner", Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
                 else{
@@ -378,7 +369,6 @@ public class MainActivity extends AppCompatActivity {
 
 
             if(drawView!=null && textView!=null){
-                last_location = drawView;
                 genXorO(drawView,imageView,textView,var);
             }
             else{
@@ -428,6 +418,33 @@ public class MainActivity extends AppCompatActivity {
         iv21.setVisibility(View.GONE);
         iv22.setVisibility(View.GONE);
 
+
+        last_turn = 'o';
+
+        int ran = new Random().nextInt(2);
+        if(ran==0){
+            comp_draw = 'x';
+            user_draw ='o';
+            ArrayList<Integer> empty = checkempty();
+            int index = new Random().nextInt(empty.size());
+            int location = (int) empty.get(index);
+            DrawView drawView = drawAtLocation(location);
+            TextView textView = textAtLocation(location);
+            ImageView imageView = imageviewAtLocation(location);
+
+            if(drawView!=null && textView!=null){
+                last_location = drawView;
+                genXorO(drawView,imageView,textView,'x');
+            }
+            else{
+                System.out.println("Error in Appp");
+            }
+        }
+        else{
+            comp_draw = 'o';
+            user_draw ='x';
+            Toast.makeText(MainActivity.this,"Make your first move",Toast.LENGTH_LONG).show();
+        }
     }
 
     public boolean toCheck(){
@@ -460,15 +477,15 @@ public class MainActivity extends AppCompatActivity {
         String v = booleanvertical(s00,s01,s02,s10,s11,s12,s20,s21,s22);
 
         if(v != null){
-            if(h.equals("v0")){
+            if(v.equals("v0")){
                 reset();
                 return true;
             }
-            if(h.equals("v1")){
+            if(v.equals("v1")){
                 reset();
                 return true;
             }
-            if(h.equals("v2")){
+            if(v.equals("v2")){
                 reset();
                 return true;
             }
@@ -584,33 +601,6 @@ public class MainActivity extends AppCompatActivity {
         d22.onResume();
 
         reset();
-
-        last_turn = 'o';
-
-        int ran = new Random().nextInt(2);
-        if(ran==0){
-            comp_draw = 'x';
-            user_draw ='o';
-            ArrayList<Integer> empty = checkempty();
-            int index = new Random().nextInt(empty.size());
-            int location = (int) empty.get(index);
-            DrawView drawView = drawAtLocation(location);
-            TextView textView = textAtLocation(location);
-            ImageView imageView = imageviewAtLocation(location);
-
-            if(drawView!=null && textView!=null){
-                last_location = drawView;
-                genXorO(drawView,imageView,textView,'x');
-            }
-            else{
-                System.out.println("Error in Appp");
-            }
-        }
-        else{
-            comp_draw = 'o';
-            user_draw ='x';
-            Toast.makeText(MainActivity.this,"Make your first move",Toast.LENGTH_LONG).show();
-        }
 
         super.onResume();
     }
