@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.harsh.xo"
         minSdkVersion 19
@@ -9,11 +9,11 @@ android {
         versionCode 3
         versionName "2.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        externalNativeBuild {
+        /*externalNativeBuild {
             cmake {
                 cppFlags ""
             }
-        }
+        }*/
     }
     buildTypes {
         release {
@@ -21,16 +21,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    externalNativeBuild {
+    /*externalNativeBuild {
         cmake {
             path "CMakeLists.txt"
+        }
+    }*/
+
+    defaultConfig {
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-    implementation 'org.tensorflow:tensorflow-android:+'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly'
+
 }

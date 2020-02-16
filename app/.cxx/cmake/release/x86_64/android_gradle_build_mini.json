@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "D:\\Android Projects\\tictactoeAI-XO-App\\app\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Harsh\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\release\\x86_64\" --target clean"
+  ],
+  "libraries": {
+    "native-lib-Release-x86_64": {
+      "artifactName": "native-lib",
+      "buildCommand": "C:\\Users\\Harsh\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\release\\x86_64\" --target native-lib",
+      "abi": "x86_64",
+      "output": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\build\\intermediates\\cmake\\release\\obj\\x86_64\\libnative-lib.so"
+    }
+  }
+}

@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PointF;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,11 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.harsh.xo.views.DrawModel;
 import com.harsh.xo.views.DrawView;
-
-import org.tensorflow.Operation;
-import org.tensorflow.contrib.android.TensorFlowInferenceInterface;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -36,17 +34,12 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_clear,btn_info;
 
 
-    private static final String MODEL_FILE_CNN = "file:///android_asset/opt_xo_differ_v2.pb";
-
-    private static final String MODEL_GAN_O = "file:///android_asset/opt_gan_O.pb";
-    private static final String MODEL_GAN_X = "file:///android_asset/opt_gan_X.pb";
-
-
-    private static final String INPUT_NODE = "input";
-    private static final String OUTPUT_NODE = "output";
-
-
-    private TensorFlowInferenceInterface inferenceInterface;
+//    private static final String MODEL_FILE_CNN = "file:///android_asset/opt_xo_differ_v2.pb";
+//    private static final String MODEL_GAN_O = "file:///android_asset/opt_gan_O.pb";
+//    private static final String MODEL_GAN_X = "file:///android_asset/opt_gan_X.pb";
+//    private static final String INPUT_NODE = "input";
+//    private static final String OUTPUT_NODE = "output";
+//    private TensorFlowInferenceInterface inferenceInterface;
 
     private DrawModel drawModel00,
             drawModel01,
@@ -73,11 +66,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        inferenceInterface = new TensorFlowInferenceInterface(getAssets(),MODEL_FILE_CNN);
+        //inferenceInterface = new TensorFlowInferenceInterface(getAssets(),MODEL_FILE_CNN);
 
         rand = new Random();
 
-        loadGANs();
+        //loadGANs();
 
         //get the model object
         drawModel00 = new DrawModel(PIXEL_WIDTH, PIXEL_WIDTH);
@@ -306,9 +299,6 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "X is the winner", Toast.LENGTH_LONG).show();
                         }
                     }
-
-
-
                 }
                 else {
                     if(last_location!=d) {
@@ -345,7 +335,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-
         }
     }
 
@@ -571,7 +560,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public float[] getDetectofDV(DrawView d){
-        float pixels[] = d.getPixelData();
+        /*float pixels[] = d.getPixelData();
 
         inferenceInterface.feed(INPUT_NODE, pixels,1,28,28,1);
         inferenceInterface.feed("keep_prob", new float[] { 1 });
@@ -583,9 +572,9 @@ public class MainActivity extends AppCompatActivity {
         float [] outputarray = new float[numClasses];
         //get the output
         inferenceInterface.fetch(OUTPUT_NODE,outputarray);
+        return outputarray;*/
 
-
-        return outputarray;
+        return null;
     }
 
     @Override
@@ -740,27 +729,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     // GAN code
-    private TensorFlowInferenceInterface inferenceInterface_GAN_O;
-    private TensorFlowInferenceInterface inferenceInterface_GAN_X;
+    // private TensorFlowInferenceInterface inferenceInterface_GAN_O;
+    // private TensorFlowInferenceInterface inferenceInterface_GAN_X;
 
-
-    //For X
-    //input_node_name = 'noise_input_x'
-    //output_node_name = 'gen_x'
-    //For O
-    //input_node_name = 'noise_input_o'
-    //output_node_name = 'gen_o
-
-    private static final String INPUT_NODE_GAN_X = "noise_input_x";
+    /*private static final String INPUT_NODE_GAN_X = "noise_input_x";
     private static final String OUTPUT_NODE_GAN_X = "gen_x";
 
     private static final String INPUT_NODE_GAN_O = "noise_input_o";
-    private static final String OUTPUT_NODE_GAN_O = "gen_o";
+    private static final String OUTPUT_NODE_GAN_O = "gen_o";*/
 
-    private void loadGANs(){
+    /*private void loadGANs(){
         inferenceInterface_GAN_O = new TensorFlowInferenceInterface(getAssets(),MODEL_GAN_O);
         inferenceInterface_GAN_X = new TensorFlowInferenceInterface(getAssets(),MODEL_GAN_X);
-    }
+    }*/
 
     public void genXorO(DrawView d,ImageView iv,TextView t, char label){
         int [] int_image;
@@ -789,7 +770,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public int[] getGAN_O(){
-        float [] noise_input = new float [100];
+        /*float [] noise_input = new float [100];
         for(int i =0 ; i<noise_input.length; i++){
             float value = rand.nextFloat();
             noise_input[i] = (value*2)-1;
@@ -805,11 +786,12 @@ public class MainActivity extends AppCompatActivity {
         for(int i =0 ; i<image.length; i++){
             int_image[i] = (int)(image[i]*255);
         }
-        return int_image;
+        return int_image;*/
+        return null;
     }
 
     public int[] getGAN_X(){
-        float [] noise_input = new float [100];
+        /*float [] noise_input = new float [100];
         for(int i =0 ; i<noise_input.length; i++){
             float value = rand.nextFloat();
             noise_input[i] = (value*2)-1;
@@ -825,7 +807,8 @@ public class MainActivity extends AppCompatActivity {
         for(int i =0 ; i<image.length; i++){
             int_image[i] = (int)(image[i]*255);
         }
-        return int_image;
+        return int_image;*/
+        return null;
     }
 
 }

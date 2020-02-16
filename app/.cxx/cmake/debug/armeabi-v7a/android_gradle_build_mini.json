@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "D:\\Android Projects\\tictactoeAI-XO-App\\app\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Harsh\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\debug\\armeabi-v7a\" --target clean"
+  ],
+  "libraries": {
+    "native-lib-Debug-armeabi-v7a": {
+      "artifactName": "native-lib",
+      "buildCommand": "C:\\Users\\Harsh\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\debug\\armeabi-v7a\" --target native-lib",
+      "abi": "armeabi-v7a",
+      "output": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a\\libnative-lib.so"
+    }
+  }
+}

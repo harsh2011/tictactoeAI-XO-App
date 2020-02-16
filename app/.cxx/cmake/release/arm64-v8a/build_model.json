@@ -1,0 +1,72 @@
+{
+  "variant": {
+    "module": {
+      "rootBuildGradleFolder": "D:\\Android Projects\\tictactoeAI-XO-App",
+      "sdkFolder": "C:\\Users\\Harsh\\AppData\\Local\\Android\\Sdk",
+      "isNativeCompilerSettingsCacheEnabled": false,
+      "isBuildOnlyTargetAbiEnabled": true,
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\build\\intermediates",
+      "gradleModulePathName": ":app",
+      "moduleRootFolder": "D:\\Android Projects\\tictactoeAI-XO-App\\app",
+      "makeFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "compilerSettingsCacheFolder": "D:\\Android Projects\\tictactoeAI-XO-App\\.cxx",
+      "cxxFolder": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx",
+      "ndkFolder": "C:\\Users\\Harsh\\AppData\\Local\\Android\\Sdk\\ndk-bundle",
+      "ndkVersion": "21.0.6113669",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "cmakeToolchainFile": "."
+    },
+    "buildSystemArgumentList": [],
+    "cFlagList": [],
+    "cppFlagsList": [
+      ""
+    ],
+    "variantName": "release",
+    "soFolder": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\build\\intermediates\\cmake\\release\\lib",
+    "objFolder": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\build\\intermediates\\cmake\\release\\obj",
+    "jsonFolder": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\release",
+    "gradleBuildOutputFolder": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cxx\\release",
+    "isDebuggableEnabled": false,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": []
+  },
+  "abi": "ARM64_V8A",
+  "abiPlatformVersion": 19,
+  "cxxBuildFolder": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\release\\arm64-v8a",
+  "jsonFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\release\\arm64-v8a\\android_gradle_build.json",
+  "gradleBuildOutputFolder": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cxx\\release\\arm64-v8a",
+  "objFolder": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\build\\intermediates\\cmake\\release\\obj\\arm64-v8a",
+  "buildCommandFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\release\\arm64-v8a\\build_command.txt",
+  "buildOutputFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\release\\arm64-v8a\\build_output.txt",
+  "modelOutputFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\release\\arm64-v8a\\build_model.json",
+  "cmake": {
+    "cmakeListsWrapperFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cxx\\release\\arm64-v8a\\CMakeLists.txt",
+    "toolchainWrapperFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cxx\\release\\arm64-v8a\\android_gradle_build.toolchain.cmake",
+    "buildGenerationStateFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cxx\\release\\arm64-v8a\\build_generation_state.json",
+    "cacheKeyFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cxx\\release\\arm64-v8a\\compiler_cache_key.json",
+    "compilerCacheUseFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cxx\\release\\arm64-v8a\\compiler_cache_use.json",
+    "compilerCacheWriteFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cxx\\release\\arm64-v8a\\compiler_cache_write.json",
+    "toolchainSettingsFromCacheFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cxx\\release\\arm64-v8a\\compiler_settings_cache.cmake",
+    "cmakeWrappingBaseFolder": "."
+  },
+  "jsonGenerationLoggingRecordFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\release\\arm64-v8a\\json_generation_record.json",
+  "compileCommandsJsonFile": "D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\release\\arm64-v8a\\compile_commands.json"
+}

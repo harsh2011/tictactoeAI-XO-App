@@ -1,0 +1,38 @@
+
+{
+	"buildFiles" : [ "D:/Android Projects/tictactoeAI-XO-App/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"C:\\Users\\Harsh\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\debug\\arm64-v8a\" --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"native-lib-Debug-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "native-lib",
+			"buildCommand" : "C:\\Users\\Harsh\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"D:\\Android Projects\\tictactoeAI-XO-App\\app\\.cxx\\cmake\\debug\\arm64-v8a\" --target native-lib",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/Harsh/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Harsh/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/Android Projects/tictactoeAI-XO-App/app/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "D:/Android Projects/tictactoeAI-XO-App/app/.cxx/cmake/debug/arm64-v8a"
+				}
+			],
+			"output" : "D:/Android Projects/tictactoeAI-XO-App/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so",
+			"toolchain" : "2871599593"
+		}
+	},
+	"toolchains" : 
+	{
+		"2871599593" : 
+		{
+			"cCompilerExecutable" : "C:/Users/Harsh/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "C:/Users/Harsh/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}
